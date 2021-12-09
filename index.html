@@ -1,81 +1,19 @@
 <!DOCTYPE html>
-<html lang="ZN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>EC代码格式化</title>
-    <style>
-        div {
-            width: 50%;
-            height: 600px;
-            margin: auto;
-            /*background-color: blanchedalmond ;*/
-        }
-
-        textarea {
-            display: block;
-            width: 100%;
-            box-sizing: border-box;
-            resize: none;
-        }
-
-        label:first-child > textarea {
-            height: 55%;
-        }
-
-        label:nth-of-type(2) > textarea {
-            height: 30%;
-        }
-
-        button:nth-of-type(1) {
-            margin: 1px 0 1px 0;
-            width: 150px;
-            height: 35px;
-            float: right;
-
-        }
-
-        button:nth-of-type(2) {
-            margin: 1px 0 0 0;
-            width: 150px;
-            height: 35px;
-            float: right;
-        }
-    </style>
+    <title>Title</title>
 </head>
-<body style="background-color: azure">
-<div>
-    <label>
-        <textarea class="text1" oninput="format()"></textarea>
-    </label>
-    <button onclick="empty()">清空</button>
-    <label>
-        <textarea class="text2"></textarea>
-    </label>
-    <button onclick="copy()">复制</button>
-</div>
+<body>
+<span></span>
 </body>
 <script>
-
-    function empty() {
-        let texts = document.querySelectorAll("textarea");
-        for (let i = 0; i < texts.length; i++) {
-            texts[i].value = ""
-        }
-    }
-
-    function copy() {
-        let text2 = document.querySelector('.text2')
-        text2.select();
-        document.execCommand("Copy"); // 执行浏览器复制命令
-        document.querySelector('.text1').value = ""
-    }
-
-    function format() {
-        let contents = document.querySelector('.text1').value;
-        let firstColor = contents.match(/(?<=let firstColor = ").+?(?=";)/g);
-        let multiColor = contents.match(/(?<=let multiColor = ").+?(?=";)/g);
-        let points = contents.match(/(?<=let points = image.findMultiColor\(tmpImage, firstColor, multiColor).+?(?=\);)/g);
-        document.querySelector('.text2').value = firstColor + ", " + multiColor + points
+    var i=0
+    setInterval("fn()",1000)
+    function fn() {
+        var sp = document.getElementsByTagName('span')
+        i++
+        sp[0].innerText = i
     }
 </script>
 </html>
